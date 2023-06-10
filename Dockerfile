@@ -44,6 +44,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq install -y avahi-daemon avahi-uti
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 RUN mkdir -p /var/log/supervisord
 EXPOSE 9090
+EXPOSE 9010
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 CMD supervisord -c /etc/supervisor/supervisord.conf
